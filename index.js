@@ -1,4 +1,4 @@
-function createdb(dbname) {
+async function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
@@ -18,7 +18,7 @@ app.get("/" + dbname, (request, response) => {
   response.sendStatus(200);
 });
 }
-function setdb(dbname,toadd) {
+async function setdb(dbname,toadd) {
   const express = require('express');
   const app = express();
   var db = require('quick.db')
@@ -32,7 +32,7 @@ function setdb(dbname,toadd) {
       });
   });
 }
-function resetdb(dbname) {
+async function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
