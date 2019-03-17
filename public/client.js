@@ -1,8 +1,8 @@
 const dreamsForm = document.forms[0];
 const dreamInput = dreamsForm.elements['dream'];
 const dbname = dreamsForm.elements['seter'];
-console.log(dreamInput)
-console.log(dbname)
+console.log(dreamInput.value)
+console.log(dbname.value)
 
 dreamsForm.onsubmit = function(event) {
   event.preventDefault();
@@ -10,9 +10,9 @@ dreamsForm.onsubmit = function(event) {
   const app = express();
   var db = require('quick.db')
     const json = {content: dreamInput.value, placeholder: "Do not remove"};
-    db.set(dbname, json)
-    app.get('/' + dbname, function(req, res){
-      db.fetch(dbname).then(function(db2) {
+    db.set(dbname.value, json)
+    app.get('/' + dbname.value, function(req, res){
+      db.fetch(dbname.value).then(function(db2) {
       res.json(db2)
       });
   });
