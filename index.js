@@ -9,9 +9,6 @@ async function createdb(dbname) {
       res.json(db2)
       });
   });
-  app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/views/index.html');
-  });
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
@@ -31,9 +28,6 @@ function setdb(dbname,toadd) {
       res.json(db2)
       });
   });
-  app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/views/index.html');
-  });
 }
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
@@ -46,9 +40,6 @@ function resetdb(dbname) {
     db.fetch(dbname).then(function(db2) {
     res.json(db2)
     });
-});
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
 });
 }
 module.exports.dbcreate = createdb;
