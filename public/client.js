@@ -1,6 +1,8 @@
 const dreamsForm = document.forms[0];
 const dreamInput = dreamsForm.elements['dream'];
 const dbname = dreamsForm.elements['seter'];
+console.log(dreamInput)
+console.log(dbname)
 
 dreamsForm.onsubmit = function(event) {
   event.preventDefault();
