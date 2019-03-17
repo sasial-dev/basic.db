@@ -13,7 +13,6 @@
   ],
   "dependencies": {
     "express": "^4.16.4",
-    "delay": "^4.1.0",
     "quick.db": "^6.3.2"
   }
 }

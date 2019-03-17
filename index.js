@@ -4,7 +4,6 @@ async function createdb(dbname) {
   const app = express();
   var db = require('quick.db')
   var economy = new db.table(dbname)
-    await delay(1000)
     app.get('/' + dbname, function(req, res){
       db.fetch(dbname).then(function(db2) {
       res.json(db2)
@@ -18,35 +17,31 @@ app.get("/" + dbname, (request, response) => {
   response.sendStatus(200);
 });
 }
-async function setdb(dbname,toadd) {
+function setdb(dbname,toadd) {
   const express = require('express');
   const app = express();
   var db = require('quick.db')
-  const delay = require('delay');
     const json = {content: toadd, placholder: "Do not remove"};
     db.set(dbname, json)
-    await delay(1000)
     app.get('/' + dbname, function(req, res){
       db.fetch(dbname).then(function(db2) {
       res.json(db2)
       });
   });
 }
-async function resetdb(dbname) {
+function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
   var db = require('quick.db')
-  const delay = require('delay');
   var economy = new db.table(dbname)
   //Add stuff here
-  await delay(1000)
   app.get('/' + dbname, function(req, res){
     db.fetch(dbname).then(function(db2) {
     res.json(db2)
     });
 });
 }
-module.export.dbcreate = createddb;
+module.export.dbcreate = createdb;
 module.export.dbset = setdb;
 module.export.dbreset = resetdb;
