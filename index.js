@@ -25,7 +25,7 @@ function setdb(dbname,toadd) {
   const express = require('express');
   const app = express();
   var db = require('quick.db')
-    const json = {content: toadd, placholder: "Do not remove"};
+    const json = {content: toadd, placeholder: "Do not remove"};
     db.set(dbname, json)
     app.get('/' + dbname, function(req, res){
       db.fetch(dbname).then(function(db2) {
