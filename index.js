@@ -44,4 +44,4 @@ function resetdb(dbname) {
 }
 module.exports.dbcreate = createdb;
 module.exports.dbset = setdb;
-module.exports.dbreset = resetdb;
+module.exports.dbreset = resetdb; 
