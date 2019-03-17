@@ -42,6 +42,6 @@ function resetdb(dbname) {
     });
 });
 }
-module.export.dbcreate = createdb;
-module.export.dbset = setdb;
-module.export.dbreset = resetdb;
+exports.dbcreate = createdb;
+exports.dbset = setdb;
+exports.dbreset = resetdb;
