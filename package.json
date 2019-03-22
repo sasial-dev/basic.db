@@ -12,8 +12,7 @@
     "sasial-roblox"
   ],
   "dependencies": {
-    "better-sqlite3": "^4.2.0",
     "express": "^4.16.4",
-    "quick.db": "^6.3.2"
+    "quick.db": "^7.0.0-b22"
   }
 }
