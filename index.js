@@ -1,4 +1,4 @@
-async function createdb(dbname) {
+function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
@@ -6,7 +6,8 @@ async function createdb(dbname) {
   var db = require('quick.db')
   var economy = new db.table(dbname)
     app.get('/' + dbname, function(req, res){
-      db.fetch(dbname).then(function(db2) {
+      db.fetch(dbname).then(function(db2){
+      console.log(db2)
       res.json(db2)
       });
   });
@@ -22,18 +23,16 @@ app.get("/" + dbname, (request, response) => {
 });
 }
 function setdb(dbname,toadd) {
-  const express = require('express');
-  const app = express();
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
-    db.set(dbname, json)
-    app.get('/' + dbname, function(req, res){
-      db.fetch(dbname).then(function(db2) {
-      res.json(db2)
-      });
-  });
-  app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/views/index.html');
+    db.set(dbname, json).then(function(db1){
+      console.log(db1)
+      app.get('/' + dbname, function(req, res){
+        db.fetch(dbname).then(function(db2){
+        console.log(db2)
+        res.json(db2)
+        });
+    });
   });
 }
 function resetdb(dbname) {
@@ -41,15 +40,15 @@ function resetdb(dbname) {
   const express = require('express');
   const app = express();
   var db = require('quick.db')
-  var economy = new db.table(dbname)
-  //Add stuff here
-  app.get('/' + dbname, function(req, res){
-    db.fetch(dbname).then(function(db2) {
-    res.json(db2)
-    });
-});
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+  const json = {};
+  db.set(dbname, json).then(function(db1){
+    console.log(db1)
+    app.get('/' + dbname, function(req, res){
+      db.fetch(dbname).then(function(db2){
+      console.log(db2)
+      res.json(db2)
+      });
+  });
 });
 }
 module.exports.dbcreate = createdb;
