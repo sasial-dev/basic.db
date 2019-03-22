@@ -6,10 +6,9 @@ function createdb(dbname) {
   var db = require('quick.db')
   var economy = new db.table(dbname)
     app.get('/' + dbname, function(req, res){
-      db.fetch(dbname).then(function(db2){
+      var db2 = db.fetch(dbname)
       console.log(db2)
       res.json(db2)
-      });
   });
   app.get('/', function(request, response) {
     response.sendFile(__dirname + '/views/index.html');
@@ -25,15 +24,13 @@ app.get("/" + dbname, (request, response) => {
 function setdb(dbname,toadd) {
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
-    db.set(dbname, json).then(function(db1){
+    var db1 = db.set(dbname, json)
       console.log(db1)
       app.get('/' + dbname, function(req, res){
-        db.fetch(dbname).then(function(db2){
+        var db2 = db.fetch(dbname)
         console.log(db2)
         res.json(db2)
         });
-    });
-  });
 }
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
