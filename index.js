@@ -24,8 +24,7 @@ app.get("/" + dbname, (request, response) => {
 function setdb(dbname,toadd) {
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
-    var db1 = db.set(dbname, json)
-      console.log(db1)
+    db.set(dbname, json)
       app.get('/' + dbname, function(req, res){
         var db2 = db.fetch(dbname)
         console.log(db2)
@@ -38,15 +37,12 @@ function resetdb(dbname) {
   const app = express();
   var db = require('quick.db')
   const json = {};
-  db.set(dbname, json).then(function(db1){
-    console.log(db1)
+  db.set(dbname, json)
     app.get('/' + dbname, function(req, res){
-      db.fetch(dbname).then(function(db2){
+      var db2 = db.fetch(dbname)
       console.log(db2)
       res.json(db2)
       });
-  });
-});
 }
 module.exports.dbcreate = createdb;
 module.exports.dbset = setdb;
