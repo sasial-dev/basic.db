@@ -29,21 +29,10 @@ function createdb(dbname) {
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
-app.get('/' + dbname, function(req, res){
-  var db2 = db.fetch(dbname)
-  console.log(db2)
-  res.json(db2)
-});
 app.get("/" + dbname, (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
 });
-  app.get('/' + dbname, function(req, res){
-    var db2 = db.fetch(dbname)
-    console.log(db2)
-    res.json(db2)
-});
-}
 function setdb(dbname,toadd) {
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
@@ -53,6 +42,7 @@ function setdb(dbname,toadd) {
         console.log(db2)
         res.json(db2)
         });
+}
 }
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
