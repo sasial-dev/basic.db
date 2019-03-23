@@ -1,15 +1,20 @@
-function createdb(dbname) {
+async function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
   app.use(express.static('public'));
   var db = require('quick.db')
+  var delay = require('delay')
   var economy = new db.table(dbname)
+  var whilei = true
+  while (whilei == true) {
     app.get('/' + dbname, function(req, res){
       var db2 = db.fetch(dbname)
       console.log(db2)
       res.json(db2)
   });
+  delay(5000)
+}
   app.get('/', function(request, response) {
     response.sendFile(__dirname + '/views/index.html');
   });
