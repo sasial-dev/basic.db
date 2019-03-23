@@ -1,6 +1,7 @@
   var whilei = false
   var dbnamei = ["place holder"]
   while (whilei == true) {
+    print(dbnamei)
     for (i = 1; i < dbnamei.length; i++){
     app.get('/' + dbname[i], function(req, res){
       var db2 = db.fetch(dbname[i])
