@@ -33,6 +33,7 @@ app.get("/" + dbname, (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
 });
+}
 function setdb(dbname,toadd) {
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
@@ -42,7 +43,6 @@ function setdb(dbname,toadd) {
         console.log(db2)
         res.json(db2)
         });
-}
 }
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
