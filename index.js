@@ -1,5 +1,5 @@
   var whilei = false
-  var dbnamei
+  var dbnamei = ["place holder"]
   while (whilei == true) {
     for (i = 1; i < dbnamei.length; i++){
     app.get('/' + dbname[i], function(req, res){
@@ -8,9 +8,12 @@
       res.json(db2)
   });
 }
-  delay(5000)
+  delayi(5000)
 }
-async function createdb(dbname) {
+async function delayi(time) {
+  await delay(time)
+}
+function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   const express = require('express');
   const app = express();
