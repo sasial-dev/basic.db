@@ -1,9 +1,9 @@
 {
-  "name": "@sasial-roblox/easy.db",
+  "name": "basic.db",
   "version": "0.1.27",
-  "description": "Removes all spaces from a string",
+  "description": "An easy database for people to use.",
   "license": "MIT",
-  "repository": "sasial-roblox/easybase",
+  "repository": "sasial-roblox/basic.db",
   "main": "index.js",
   "keywords": [
     "database",
