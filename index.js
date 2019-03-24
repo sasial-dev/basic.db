@@ -20,6 +20,13 @@ function resetdb(dbname) {
   const json = {};
   db.set(dbname, json)
 }
+function getdb(dbname) {
+  if (typeof dbname !== "string") throw new TypeError("A string is needed!");
+  var db = require('quick.db')
+  var fetch = db.fetch(dbname)
+  return fetch
+}
 module.exports.dbcreate = createdb;
 module.exports.dbset = setdb;
 module.exports.dbreset = resetdb; 
+module.exports.dbget = getdb;
