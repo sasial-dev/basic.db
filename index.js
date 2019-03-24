@@ -24,7 +24,7 @@ function getdb(dbname) {
   var fetch = db.fetch(dbname)
   return fetch
 }
-module.exports.dbcreate = createdb;
-module.exports.dbset = setdb;
-module.exports.dbreset = resetdb; 
-module.exports.dbget = getdb;
+export const dbcreate = createdb;
+export const dbset = setdb;
+export const dbreset = resetdb; 
+export const dbget = getdb;
