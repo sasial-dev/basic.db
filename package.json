@@ -1,6 +1,6 @@
 {
   "name": "basic.db",
-  "version": "0.1.30",
+  "version": "0.2.0",
   "description": "An easy database for people to use.",
   "license": "MIT",
   "repository": "sasial-roblox/basic.db",
@@ -13,7 +13,6 @@
   ],
   "dependencies": {
     "delay": "^4.1.0",
-    "express": "^4.16.4",
     "quick.db": "^7.0.0-b22"
   }
 }
