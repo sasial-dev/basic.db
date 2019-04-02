@@ -1,17 +1,18 @@
   async function delayi(time) {
+    var delay = require('delay')
   await delay(time)
 }
 function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
-  var delay = require('delay')
   var economy = new db.table(dbname)
 }
 function setdb(dbname,toadd) {
   var db = require('quick.db')
     const json = {content: toadd, placeholder: "Do not remove"};
     db.set(dbname, json)
-}
+    delayi(1000)
+} 
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
@@ -24,7 +25,7 @@ function getdb(dbname) {
   var fetch = db.fetch(dbname)
   return fetch
 }
-export const dbcreate = createdb;
-export const dbset = setdb;
-export const dbreset = resetdb; 
-export const dbget = getdb;
+module.exports.dbcreate = createdb;
+module.exports.dbset = setdb;
+module.exports.dbreset = resetdb; 
+module.exports.dbget = getdb;
