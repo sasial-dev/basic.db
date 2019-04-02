@@ -23,7 +23,7 @@ function getdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
   var fetch = db.fetch(dbname)
-  return fetch
+  return fetch.content
 }
 module.exports.dbcreate = createdb;
 module.exports.dbset = setdb;
