@@ -16,7 +16,7 @@ function setdb(dbname,toadd) {
 function resetdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
-  const json = {};
+  const json = {content: "", placeholder: "Do not remove"};
   db.set(dbname, json)
 }
 function getdb(dbname) {
