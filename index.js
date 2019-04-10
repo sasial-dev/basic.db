@@ -24,7 +24,9 @@ async function getdb(dbname) {
   var db = require('quick.db')
   var fetch = db.fetch(dbname)
   if (fetch == undefined) {
-       await dbcreate(dbname)
+    var wait = require('delay')
+      var economy = new db.table(dbname)
+      wait(1000)
        var fetch2 = await db.fetch(dbname)
        return fetch2.content
   }
