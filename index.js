@@ -24,11 +24,9 @@ async function getdb(dbname) {
   var db = require('quick.db')
   var fetch = db.fetch(dbname)
   if (fetch == undefined) {
-    if (fetch.content == undefined) {
        await dbcreate(dbname)
        var fetch2 = await db.fetch(dbname)
        return fetch2.content
-    }
   }
   return fetch.content
 }
