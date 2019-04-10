@@ -19,10 +19,17 @@ function resetdb(dbname) {
   const json = {content: "", placeholder: "Do not remove"};
   db.set(dbname, json)
 }
-function getdb(dbname) {
+async function getdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
   var fetch = db.fetch(dbname)
+  if (fetch == undefined) {
+    if (fetch.content == undefined) {
+       await dbcreate(dbname)
+       var fetch2 = await db.fetch(dbname)
+       return fetch2.content
+    }
+  }
   return fetch.content
 }
 module.exports.dbcreate = createdb;
