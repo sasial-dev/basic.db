@@ -5,7 +5,6 @@ async function delayi(timeout) {
       }
   );
 };
-
 /*function createdb(dbname) {
   if (typeof dbname !== "string") throw new TypeError("A string is needed!");
   var db = require('quick.db')
