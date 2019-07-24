@@ -48,6 +48,6 @@ Temporary Items
 
 # Ignores
 node_modules/*
-
+.vscode
 start.bat
 config.json

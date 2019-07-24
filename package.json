@@ -12,7 +12,6 @@
     "sasial-roblox"
   ],
   "dependencies": {
-    "delay": "^4.1.0",
     "quick.db": "^7.0.0-b22"
   }
 }
