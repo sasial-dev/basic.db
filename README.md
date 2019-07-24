@@ -13,48 +13,49 @@
 # Basic.db
 This module is a simple Node.js based database package for Discord.js projects.
 __The commands available are:__
-*  `dbcreate`: Create a database to start with.
 *  `dbset`: Set the database
 *  `dbreset`: Clear the database.
 *  `dbget`: Get the infomation in the database, if none it will create it.
-*  `wait` : Delay, you can only use in an await function.
+*  `wait` : Delay Command; Async function is NOT required for this.
 ***
 # Installation
 __Pre-installation:__
 * None
 __Installation:__
 *  `npm install basic.db --save`
-If you have troubles installing, plesase submit an issue, or for faster help [join the discord server] (https://discord.gg/hvJPUwR).
+If you have troubles installing, plesase submit an issue, or for faster help join the discord server at https://discord.gg/hvJPUwR.
 # Example
 __dbcreate__
+
+This is now depcapritated. To check if a db exists use db.dbget.
 ```js
 // This code is not needed. To check if a db exists use db.dbget, 
 var db = require("basic.db")
 db.dbcreate("dbname")
 ```
 ***
-__dbset__
+__dbset - Set a Database__
 ```js
 var db = require("basic.db")
 var testing = "This is a test"
 db.dbset("test",testing)
 ```
 ***
-__dbreset__
+__dbreset - Reset a database__
 ```js
 var db = require("basic.db")
 db.dbreset("dbname")
 ```
 ***
-__dbget__
+__dbget - Get a database__
 ```js
-var easyDb = require("basic.db")
-var get = await easyDb.dbget("dbname") /* You are not required to use await,
+var db = require("basic.db")
+var get = await db.dbget("dbname") /* You are not required to use await,
 though if you do not use await, the varible will not update. */
 console.log(get)
 ```
 ***
-__wait__
+__wait - Wait for a period of time. (Async is NOT required)__
 ```js
 var db = require("basic.db")
 await db.wait(100)
@@ -63,10 +64,11 @@ await db.wait(100)
 __Full Example__
 ```js
 var db = require("basic.db")
-var get = await db.dbget("db")
-console.log(get)
-await easyDb.wait(100)
-easyDb.dbset("db","Test")
-await easyDb.wait(100)
-console.log(get)
+console.log(db.dbget("db"))
+db.wait(100).then(() => {
+  db.dbset("db","Test")
+  db.wait(100).then(() => {
+    console.log(db.dbget("db"))
+  });
+});
 ```
